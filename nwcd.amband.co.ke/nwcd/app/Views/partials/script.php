@@ -1,4 +1,7 @@
     <!-- jQuery library js -->
+
+<!-- Bootstrap JS -->
+
     <script src="<?= base_url('assets/js/lib/jquery-3.7.1.min.js') ?>"></script>
     <!-- Apex Chart js -->
     <script src="<?= base_url('assets/js/lib/apexcharts.min.js') ?>"></script>
@@ -25,5 +28,6 @@
     <script src="<?= base_url('assets/js/flowbite.min.js') ?>"></script>
     <!-- main js -->
     <script src="<?= base_url('assets/js/app.js') ?>"></script>
-
+ <script src="<?= base_url('assets/js/defaultCarousel.js') ?>"></script>
+   <script src="<?= base_url('assets/js/lib/bootstrap.bundle.min.js') ?>"></script>
     <?= $this->renderSection('script') ?>
