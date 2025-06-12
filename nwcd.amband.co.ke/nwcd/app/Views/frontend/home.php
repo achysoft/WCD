@@ -10,7 +10,7 @@
     <!-- ..::  header area end ::.. -->
  
   <?= $this->include('./partials/slider') ?>
-
+ <?= $this->include('./partials/content') ?>
     <!-- ..::  scripts  start ::.. -->
     <?= $this->include('./partials/script') ?>
   <!-- ..::  footer  start ::.. -->
