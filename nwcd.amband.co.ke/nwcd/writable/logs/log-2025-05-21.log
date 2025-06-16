@@ -1,9 +1,0 @@
-CRITICAL - 2025-05-21 08:26:23 --> ErrorException: Undefined array key "SERVER_NAME"
-[Method: CLI, Route: serve]
-in APPPATH\Config\Routes.php on line 5.
- 1 APPPATH\Config\Routes.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\xampp\\htdocs\\nwcd\\app\\Config\\Routes.php', 5)
- 2 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\nwcd\\app\\Config\\Routes.php')
- 3 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
- 4 SYSTEMPATH\Boot.php(360): CodeIgniter\CLI\Console->run()
- 5 SYSTEMPATH\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
- 6 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
