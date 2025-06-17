@@ -95,31 +95,46 @@
 </section>
 <?= $this->section('script') ?>
 <script>
-    const map = L.map('map').setView([0.0236, 37.9062], 6); // Kenya lat/lng
+    const map = L.map('map').setView([0.0236, 37.9062], 6);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
     const parks = <?= json_encode($parks) ?>;
+    const reserves = <?= json_encode($reserves) ?>;
 
     parks.forEach(park => {
-        const customIcon = L.icon({
-            iconUrl: `/assets/images/icons/${park.icon_url}`, // dynamically use park icon
-            iconSize: [32, 32], // adjust size as needed
-            iconAnchor: [16, 32], // point of the icon which will correspond to marker's location
-            popupAnchor: [0, -32] // position of the popup relative to the icon
+        const icon = L.icon({
+            iconUrl: `/assets/images/icons/${park.icon_url}`,
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
         });
 
-        L.marker([park.latitude, park.longitude], { icon: customIcon })
+        L.marker([park.latitude, park.longitude], { icon })
             .addTo(map)
-            .bindPopup(`<strong>${park.name}</strong><br>
+            .bindPopup(`<strong>${park.name} (Park)</strong><br>
                         Location: ${park.location}<br>
                         Established: ${park.establishment}<br>
                         Major Species: ${park.major_species}`);
     });
+
+    reserves.forEach(reserve => {
+        const icon = L.icon({
+            iconUrl: `/assets/images/icons/${reserve.icon_url || 'reserve.png'}`,
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        L.marker([reserve.latitude, reserve.longitude], { icon })
+            .addTo(map)
+            .bindPopup(`<strong>${reserve.name} (Reserve)</strong><br>
+                        Location: ${reserve.location}<br>
+                        Established: ${reserve.establishment}<br>
+                        Major Species: ${reserve.major_species}`);
+    });
 </script>
-
-
 
 <?= $this->endSection() ?>

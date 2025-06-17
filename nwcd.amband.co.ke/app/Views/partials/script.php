@@ -3,6 +3,7 @@
 <!-- Bootstrap JS -->
 
     <script src="<?= base_url('assets/js/lib/jquery-3.7.1.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/lib/jquery-3.5.1.slim.min.js') ?>"></script>
      <script src="<?= base_url('assets/js/lib/bootstrap.bundle.min.js') ?>"></script>
     <!-- Apex Chart js -->
     <script src="<?= base_url('assets/js/lib/apexcharts.min.js') ?>"></script>
