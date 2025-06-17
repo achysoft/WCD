@@ -95,18 +95,23 @@
 </section>
 <?= $this->section('script') ?>
 <script>
-    const map = L.map('map').setView([0.0236, 37.9062], 6); // Kenya lat/lng, zoom 6
+    const map = L.map('map').setView([0.0236, 37.9062], 6); // Kenya lat/lng
 
-    // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Load markers dynamically from PHP
     const parks = <?= json_encode($parks) ?>;
 
     parks.forEach(park => {
-        L.marker([park.latitude, park.longitude])
+        const customIcon = L.icon({
+            iconUrl: `/assets/images/icons/${park.icon_url}`, // dynamically use park icon
+            iconSize: [32, 32], // adjust size as needed
+            iconAnchor: [16, 32], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -32] // position of the popup relative to the icon
+        });
+
+        L.marker([park.latitude, park.longitude], { icon: customIcon })
             .addTo(map)
             .bindPopup(`<strong>${park.name}</strong><br>
                         Location: ${park.location}<br>
@@ -114,6 +119,7 @@
                         Major Species: ${park.major_species}`);
     });
 </script>
+
 
 
 <?= $this->endSection() ?>
