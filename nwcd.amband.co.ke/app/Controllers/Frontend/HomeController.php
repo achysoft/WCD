@@ -18,13 +18,15 @@ class HomeController extends Controller
     return view('frontend/home', $data);
 }
 
-    public function about()
+    public function parks()
     {
-        return view('frontend/about');
+         $parkModel = new Crud_model();
+         $data['parks'] = $parkModel->setTable('parks')->findAll();
+        return view('landscape/parks_view', $data);
     }
 
-    public function contact()
+    public function reserves()
     {
-        return view('frontend/contact');
+        return view('landscape/reserves_view');
     }
 }
