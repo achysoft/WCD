@@ -26,7 +26,7 @@
             </svg>
           </button>
           <ul x-show="open" @click.away="open = false" class="absolute bg-white shadow rounded mt-2 w-56 z-50">
-            <li><a href="<?= base_url('landscape/Parks'); ?>" class="block px-4 py-2 hover:bg-gray-100">Parks</a></li>
+            <li><a href="<?= base_url('parks'); ?>" class="block px-4 py-2 hover:bg-gray-100">Parks</a></li>
             <li><a href="<?= base_url('landscape/Reserves'); ?>" class="block px-4 py-2 hover:bg-gray-100">Reserves</a></li>
             <li><a href="<?= base_url('landscape/Sanctuaries'); ?>" class="block px-4 py-2 hover:bg-gray-100">Sanctuaries</a></li>
             <li><a href="<?= base_url('landscape/Conservancies'); ?>" class="block px-4 py-2 hover:bg-gray-100">Conservancies</a></li>
