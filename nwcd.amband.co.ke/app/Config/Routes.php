@@ -16,8 +16,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
 // --------------------------------------------------------------------
 $routes->group('', ['namespace' => 'App\Controllers\Frontend'], function($routes) {
     $routes->get('/', 'HomeController::index', ['as' => 'frontendHome']);
-    $routes->get('about', 'HomeController::about', ['as' => 'frontendAbout']);
-    $routes->get('contact', 'HomeController::contact', ['as' => 'frontendContact']);
+    $routes->get('parks', 'HomeController::parks', ['as' => 'landscapeParks']);
+    $routes->get('reserves', 'HomeController::reserves', ['as' => 'landscapeReserves']);
 });
 
 // --------------------------------------------------------------------
