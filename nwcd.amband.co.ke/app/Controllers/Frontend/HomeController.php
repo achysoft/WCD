@@ -29,4 +29,23 @@ class HomeController extends Controller
     {
         return view('landscape/reserves_view');
     }
+    public function policyPublications()
+{
+    $model = new Crud_model();
+    $perPage = 5;
+    $page = (int) ($this->request->getGet('page') ?? 1);
+    $offset = ($page - 1) * $perPage;
+
+    $data['publications_list'] = $model->setTable('policy_publications')
+        ->limit($perPage, $offset)
+        ->find();
+
+    $total = $model->setTable('policy_publications')->countAll();
+
+    $data['current_page'] = $page;
+    $data['total_pages'] = ceil($total / $perPage);
+
+    return view('policy/policy_publications_view', $data);
+}
+
 }
