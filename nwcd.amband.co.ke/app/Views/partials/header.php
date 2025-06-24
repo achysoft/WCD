@@ -77,7 +77,7 @@
             </svg>
           </button>
           <ul x-show="open" @click.away="open = false" class="absolute bg-white shadow rounded mt-2 w-56 z-50">
-            <li><a href="<?= base_url('policy/publications'); ?>" class="block px-4 py-2 hover:bg-gray-100">Publications</a></li>
+            <li><a href="<?= base_url('policyPublications'); ?>" class="block px-4 py-2 hover:bg-gray-100">Publications</a></li>
           </ul>
         </div>
       </div>
@@ -117,8 +117,8 @@
       {
         title: 'Landscape',
         links: [
-          { name: 'Parks', href: '<?= base_url('landscape/Parks'); ?>' },
-          { name: 'Reserves', href: '<?= base_url('landscape/Reserves'); ?>' },
+          { name: 'Parks', href: '<?= base_url('parks'); ?>' },
+          { name: 'Reserves', href: '<?= base_url('reserves'); ?>' },
           { name: 'Sanctuaries', href: '<?= base_url('landscape/Sanctuaries'); ?>' },
           { name: 'Conservancies', href: '<?= base_url('landscape/Conservancies'); ?>' }
         ]
@@ -140,7 +140,7 @@
       {
         title: 'Policy & Legal',
         links: [
-          { name: 'Publications', href: '<?= base_url('policy/publications'); ?>' }
+          { name: 'Publications', href: '<?= base_url('policyPublications'); ?>' }
         ]
       }
     ]" :key="section.title">
