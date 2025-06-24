@@ -6,22 +6,18 @@ use CodeIgniter\Model;
 
 class Crud_model extends Model
 {
-    protected $table; // Set dynamically
+    protected $table;
     protected $primaryKey = 'id';
-    protected $allowedFields = [
-        'name', 'latitude', 'longitude', 'icon_url', 'location',
-        'size_km', 'establishment', 'major_species', 'govenance_status', 'description'
-    ];
-    protected $useTimestamps = false; // Enable if using created_at/updated_at
-    protected $returnType = 'array'; // 'object' if you prefer objects
+    protected $useTimestamps = false;
+    protected $returnType = 'array';
 
     /**
-     * Dynamically set the table name.
+     * Set the table name dynamically.
      *
      * @param string $tableName
      * @return $this
      */
-    public function setTable($tableName)
+    public function setTable(string $tableName)
     {
         $this->table = $tableName;
         return $this;
