@@ -18,6 +18,7 @@ $routes->group('', ['namespace' => 'App\Controllers\Frontend'], function($routes
     $routes->get('/', 'HomeController::index', ['as' => 'frontendHome']);
     $routes->get('parks', 'HomeController::parks', ['as' => 'landscapeParks']);
     $routes->get('reserves', 'HomeController::reserves', ['as' => 'landscapeReserves']);
+    $routes->get('policyPublications', 'HomeController::policyPublications', ['as' => 'policypolicyPublications']);
 });
 
 // --------------------------------------------------------------------
