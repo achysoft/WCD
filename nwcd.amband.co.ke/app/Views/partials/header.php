@@ -33,23 +33,40 @@
           </ul>
         </div>
 
-        <!-- Conservation Placeholder -->
-        <div x-data="{ open: false }" class="relative">
-          <button @click="open = !open" class="hover:text-purple-600 flex items-center gap-1">
-            Conservation
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <ul x-show="open" @click.away="open = false" class="absolute bg-white shadow rounded mt-2 w-56 z-50">
-            <li><a href="<?= base_url('landscape/Parks'); ?>" class="block px-4 py-2 hover:bg-gray-100">Youth/young people in conservation</a></li>
-            <li><a href="<?= base_url('landscape/Reserves'); ?>" class="block px-4 py-2 hover:bg-gray-100"> Conservation Education & Awareness</a></li>
-            <li><a href="<?= base_url('landscape/Sanctuaries'); ?>" class="block px-4 py-2 hover:bg-gray-100">Threats and challenges to Wildlife conservation</a></li>
-            <li><a href="<?= base_url('landscape/Conservancies'); ?>" class="block px-4 py-2 hover:bg-gray-100">Wildlife economy</a></li>
-             <li><a href="<?= base_url('landscape/Conservancies'); ?>" class="block px-4 py-2 hover:bg-gray-100">Programs and projects </a></li>
-             <li><a href="<?= base_url('landscape/Conservancies'); ?>" class="block px-4 py-2 hover:bg-gray-100">Donors, development partner & other stakeholders   </a></li>
-          </ul>
-        </div>
+      <!-- Conservation Placeholder -->
+<div x-data="{ open: false }" class="relative">
+  <button @click="open = !open" class="hover:text-purple-600 flex items-center gap-1">
+    Conservation
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <ul x-show="open" @click.away="open = false" class="absolute bg-white shadow rounded mt-2 w-56 z-50">
+    <li><a href="<?= base_url('landscape/Parks'); ?>" class="block px-4 py-2 hover:bg-gray-100">Youth/young people in conservation</a></li>
+    <li><a href="<?= base_url('landscape/Reserves'); ?>" class="block px-4 py-2 hover:bg-gray-100">Conservation Education & Awareness</a></li>
+    <li><a href="<?= base_url('landscape/Sanctuaries'); ?>" class="block px-4 py-2 hover:bg-gray-100">Threats and challenges to Wildlife conservation</a></li>
+    <li><a href="<?= base_url('landscape/Conservancies'); ?>" class="block px-4 py-2 hover:bg-gray-100">Wildlife economy</a></li>
+
+    <!-- Programs and Projects with Sub-tab -->
+    <li x-data="{ subOpen: false }" class="relative">
+      <button @click="subOpen = !subOpen" class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center justify-between">
+        Programs and projects
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <ul x-show="subOpen" class="absolute left-full top-0 mt-0 ml-1 w-56 bg-white border rounded shadow z-50">
+        <li><a href="<?= base_url('conservation/Ongoing'); ?>" class="block px-4 py-2 hover:bg-gray-100">Ongoing Projects</a></li>
+        <li><a href="<?= base_url('conservation/WaterPan'); ?>" class="block px-4 py-2 hover:bg-gray-100">Water Pan Projects</a></li>
+      </ul>
+    </li>
+
+    <li><a href="<?= base_url('landscape/Conservancies'); ?>" class="block px-4 py-2 hover:bg-gray-100">Donors, development partner & other stakeholders</a></li>
+  </ul>
+</div>
+
 
         <!-- Biodiversity Dropdown -->
         <div x-data="{ open: false }" class="relative">

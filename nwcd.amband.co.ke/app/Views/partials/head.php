@@ -15,7 +15,12 @@
   <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/remixicon.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/lib/apexcharts.css') ?>">
-  <link rel="stylesheet" href="<?= base_url('assets/css/lib/dataTables.min.css') ?>">
+    <!-- DataTables CSS (no default theme, minimal styling) -->
+  <!-- DataTables CSS (no default theme, minimal styling) -->
+ <link rel="stylesheet" href="<?= base_url('assets/css/lib/jquery.dataTables.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/css/lib/responsive.dataTables.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/css/lib/buttons.dataTables.min.css') ?>">
+
   <link rel="stylesheet" href="<?= base_url('assets/css/lib/editor-katex.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/lib/editor.atom-one-dark.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/lib/editor.quill.snow.css') ?>">

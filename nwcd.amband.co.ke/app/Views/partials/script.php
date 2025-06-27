@@ -8,7 +8,13 @@
     <!-- Apex Chart js -->
     <script src="<?= base_url('assets/js/lib/apexcharts.min.js') ?>"></script>
     <!-- Data Table js -->
-    <script src="<?= base_url('assets/js/lib/simple-datatables.min.js') ?>"></script>
+   <!-- DataTables JS -->
+<script src="<?= base_url('assets/js/lib/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/lib/dataTables.responsive.min.js') ?>"></script>
+<!-- Buttons JS + dependencies -->
+<script src="<?= base_url('assets/js/lib/dataTables.buttons.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/lib/buttons.html5.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/lib/jszip.min.js') ?>"></script>
     <!-- Iconify Font js -->
     <script src="<?= base_url('assets/js/lib/iconify-icon.min.js') ?>"></script>
     <!-- jQuery UI js -->
