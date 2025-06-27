@@ -19,6 +19,10 @@ $routes->group('', ['namespace' => 'App\Controllers\Frontend'], function($routes
     $routes->get('parks', 'HomeController::parks', ['as' => 'landscapeParks']);
     $routes->get('reserves', 'HomeController::reserves', ['as' => 'landscapeReserves']);
     $routes->get('policyPublications', 'HomeController::policyPublications', ['as' => 'policypolicyPublications']);
+    $routes->get('conservation/Ongoing', 'HomeController::ongoingProjects', ['as' => 'conservationOngoingProjects']);
+    $routes->get('biodiversity/Flora', 'HomeController::flora', ['as' => 'biodiversityFlora']);
+    $routes->post('biodiversity/flora/get_ecosystems_by_type', 'Frontend\HomeController::get_ecosystems_by_type');
+
 });
 
 // --------------------------------------------------------------------
