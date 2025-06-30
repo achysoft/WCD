@@ -21,8 +21,8 @@ $routes->group('', ['namespace' => 'App\Controllers\Frontend'], function($routes
     $routes->get('policyPublications', 'HomeController::policyPublications', ['as' => 'policypolicyPublications']);
     $routes->get('conservation/Ongoing', 'HomeController::ongoingProjects', ['as' => 'conservationOngoingProjects']);
     $routes->get('biodiversity/Flora', 'HomeController::flora', ['as' => 'biodiversityFlora']);
-    $routes->post('biodiversity/flora/get_ecosystems_by_type', 'Frontend\HomeController::get_ecosystems_by_type');
-
+    $routes->post('biodiversity/flora/get_ecosystems_by_type', 'HomeController::get_ecosystems_by_type');
+    $routes->post('biodiversity/flora/get_flora_by_ecosystem', 'HomeController::get_flora_by_ecosystem');
 });
 
 // --------------------------------------------------------------------
