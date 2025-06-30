@@ -12,6 +12,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
+        $this->db = \Config\Database::connect();
         $this->ecosystemModel = new Ecosystem_model();
     }
 
@@ -90,15 +91,44 @@ class HomeController extends Controller
 
   public function get_ecosystems_by_type()
 {
-    $type_id = $this->request->getPost('type_id');
+    $typeId = $this->request->getPost('type_id');
 
-    if (!$type_id) {
-        return $this->response->setJSON(['error' => 'No type_id received']);
+    if ($typeId) {
+        // Use the already-injected model
+        $ecosystems = $this->ecosystemModel->getEcosystemsByType($typeId);
+        return $this->response->setJSON($ecosystems);
     }
 
-    $ecosystems = $this->ecosystemModel->getEcosystemsByType($type_id);
+    return $this->response->setJSON([]);
+}
+public function get_flora_by_ecosystem()
+{
+    $ecosystemId = $this->request->getPost('ecosystem_id');
 
-    return $this->response->setJSON($ecosystems);
+    if ($ecosystemId) {
+        try {
+            $flora = $this->ecosystemModel->getFloraByEcosystem($ecosystemId);
+
+            $templateRow = $this->db->table('templates')
+                ->where('ecosystem_id', $ecosystemId)
+                ->get()
+                ->getRow();
+
+            // Log results or return them for debugging
+            log_message('debug', 'Flora count: '.count($flora));
+            log_message('debug', 'TemplateRow: '.print_r($templateRow, true));
+
+            return $this->response->setJSON([
+                'flora' => $flora,
+                'template' => $templateRow ? $templateRow->template : null
+            ]);
+        } catch (\Exception $e) {
+            log_message('error', 'Error getting flora/template: '.$e->getMessage());
+            return $this->response->setStatusCode(500)->setJSON(['error' => $e->getMessage()]);
+        }
+    }
+
+    return $this->response->setJSON(['flora'=>[], 'template'=>null]);
 }
 
 }
