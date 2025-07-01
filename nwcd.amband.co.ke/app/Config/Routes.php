@@ -27,7 +27,7 @@ $routes->group('', ['namespace' => 'App\Controllers\Frontend'], function($routes
 
 // --------------------------------------------------------------------
 // BACKEND / ADMIN ROUTES
-$routes->group('admin', function($routes) {
+$routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'DashboardController::index', ['as' => 'adminDashboard']); // <- for /admin
     $routes->get('dashboard', 'DashboardController::index', ['as' => 'dashboard']); // /admin/dashboard
     $routes->get('index2','DashboardController::index2',['as' => 'index2']);
@@ -52,8 +52,11 @@ $routes->group('aiapplication', function($routes) {
 $routes->group('authentication', function($routes) {
     $routes->get('forgot-password','AuthenticationController::forgotPassword',['as' => 'forgotPassword']);
     $routes->get('signin','AuthenticationController::signin',['as' => 'signin']);
+    $routes->post('signin','AuthenticationController::signin');
     $routes->get('signup','AuthenticationController::signup',['as' => 'signup']);
+    $routes->get('logout', 'AuthenticationController::logout', ['as' => 'logout']);
 });
+
 
 $routes->group('chart', function($routes) {
     $routes->get('column-chart','ChartController::columnChart',['as' => 'columnChart']);
@@ -149,3 +152,15 @@ $routes->group('home', function($routes) {
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+$routes->set404Override(function () {
+    $url = current_url(true);
+
+    // Optional: ignore .map files in logs
+    if (str_ends_with($url->getPath(), '.map')) {
+        return;
+    }
+
+    log_message('error', '404 Override Triggered - URL Not Found: ' . $url);
+    return view('errors/html/custom_404', ['url' => $url]);
+});
+
